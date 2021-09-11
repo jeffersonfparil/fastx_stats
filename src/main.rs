@@ -1,13 +1,21 @@
-mod structs_traits_methods;
+use std::env;
+
+use fastx_stats::UserInput;
 
 fn main() {
+    // Splash intro message:
+    println!("----------------------------------");
     println!("FASTX_STATS");
     println!("DNA sequence statistics");
-    // test Fasta
-    let seq1 = structs_traits_methods::Fasta {
-        name: String::from("> chr1:123-213:blah-blah"),
-        sequence: String::from("ATCGTAGCTATCATTAGCTAGCTAGCTGACTCATCTAGCT")
-    };
-    println!("Sequence: {}", seq1.name);
-    println!("{}", seq1.sequence);
+    println!("----------------------------------");
+    // User input:
+    let args: Vec<String> = env::args().collect();
+    let user_input = UserInput::new(&args);
+    // // test Fasta
+    // let seq1 = structs_traits_methods::Fasta {
+    //     name: String::from("> chr1:123-213:blah-blah"),
+    //     sequence: String::from("ATCGTAGCTATCATTAGCTAGCTAGCTGACTCATCTAGCT")
+    // };
+    println!("Filename: {}", user_input.filename);
+    println!("Flaghs: {}", user_input.flags);
 }
