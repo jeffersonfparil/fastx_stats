@@ -1,6 +1,9 @@
 use std::env;
 
 use fastx_stats::UserInput;
+use fastx_stats::Fasta;
+use fastx_stats::Fastq;
+use fastx_stats::ParseSequence;
 
 fn main() {
     // Splash intro message:
